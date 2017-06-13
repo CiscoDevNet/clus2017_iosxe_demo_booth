@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    {% block title %}
+    <title>{{ title }}</title>
+    {% endblock %}
+
+    <!-- Bootstrap Core CSS -->
+    <link href="static/vendor/bootstrap/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="static/vendor/font-awesome/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic,900,900italic' rel='stylesheet' type='text/css'>
+
+    <!-- Plugin CSS -->
+    <link href="static/vendor/magnific-popup/magnific-popup.css" rel="stylesheet">
+
+    <!-- Theme CSS -->
+    <link href="static/css/creative.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+    <header>
+        <div class="container">
+            <div class="col-sm-12">
+                <h1>IOS XE Programmability and the Catalyst 9000</h1>
+                <h2>Explore the Demos Available</h2>
+            </div>
+        </div>
+    </header>
+
+    <div class="">
+        <div class="">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <h5>Visit <a href="https://github.com/CiscoDevNet/clus2017_iosxe_demo_booth" target="_blank">CiscoDevNet/clus2017_iosxe_demo_booth</a> on GitHub for more info</h5>
+                </div>
+                <div class="col-sm-4">
+                    <p></p>
+                </div>
+                <div class="col-sm-2" align="right">
+                    <img src="../static/img/devnet_blue1.png" class="img-responsive" width="200">
+
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- jQuery -->
+    <script src="static/vendor/jquery/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="static/vendor/bootstrap/js/bootstrap.js"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.js"></script>
+    <script src="static/vendor/scrollreveal/scrollreveal.js"></script>
+    <script src="static/vendor/magnific-popup/jquery.magnific-popup.js"></script>
+
+    <!-- Theme JavaScript -->
+    <script src="static/js/creative.js"></script>
+
+</body>
+
+</html>
