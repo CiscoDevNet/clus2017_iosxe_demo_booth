@@ -12,6 +12,7 @@
 import random
 import string
 
+
 WORDLIST_FILENAME = "words.txt"
 
 def loadWords():
