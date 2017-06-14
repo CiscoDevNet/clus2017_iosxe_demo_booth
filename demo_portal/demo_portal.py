@@ -1,8 +1,7 @@
 #!/usr/bin/env python
 
-from flask import Flask, render_template, request, jsonify
-import requests
-import json
+from flask import Flask, render_template
+import markdown
 
 app = Flask(__name__)
 
@@ -41,7 +40,8 @@ demos = [
         "owners": ["Hank P"],
         "features": ["guestshell", "git", "devops"],
         "image": "git.png",
-        "code": "git"
+        "code": "git",
+        "demo_steps": markdown.markdown(open("static/demo_git_steps.md").read())
     },
     {
         "name": "Talk to the Network",
