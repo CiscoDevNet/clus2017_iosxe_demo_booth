@@ -1,6 +1,6 @@
 import requests
 from requests.auth import HTTPBasicAuth
-from requests.packages.urllib3.exceptions import InsecureRequestWarning
+import requests.packages.urllib3
 import json
 
 proxies = {
@@ -10,7 +10,7 @@ proxies = {
 
 def create_room(room_name, token):
 	
-	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+	requests.packages.urllib3.disable_warnings()
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -23,7 +23,7 @@ def create_room(room_name, token):
 
 def list_rooms(token):
 	
-	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+	requests.packages.urllib3.disable_warnings()
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -34,7 +34,7 @@ def list_rooms(token):
 
 def get_room_id(room_name, token):
 
-	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+	requests.packages.urllib3.disable_warnings()
 
 	id = ""
 
@@ -55,7 +55,7 @@ def get_room_id(room_name, token):
 
 def list_messages(room_id, token):
 
-	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+	requests.packages.urllib3.disable_warnings()
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -65,7 +65,7 @@ def list_messages(room_id, token):
 
 def post_message(message_text, room_id, token):
 
-	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+	requests.packages.urllib3.disable_warnings()
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -79,7 +79,7 @@ def post_message(message_text, room_id, token):
 
 def post_message_with_image(message_text, img_url, room_id, token):
 
-	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+	requests.packages.urllib3.disable_warnings()
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -93,7 +93,7 @@ def post_message_with_image(message_text, img_url, room_id, token):
 
 def cleanup_room(room_id, token):
 
-	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
+	requests.packages.urllib3.disable_warnings()
 
 	messages = json.loads(list_messages(room_id, token))
 
