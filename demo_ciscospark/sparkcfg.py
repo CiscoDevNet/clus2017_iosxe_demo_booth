@@ -15,13 +15,13 @@ def save_config():
 	output = cli('show run')
 
 	timestr = time.strftime("%Y%m%d-%H%M%S")
-	filename = "/home/guestshell/" + timestr + "_shrun"
+	filename = "/home/guestshell/configs/" + timestr + "_shrun"
 
 	f = open(filename,"w")
 	f.write(output)
 	f.close
 
-	f = open('/home/guestshell/current_config_name','w')
+	f = open('/home/guestshell/configs/current_config_name','w')
 	f.write(filename)
 	f.close
 
@@ -30,7 +30,7 @@ def save_config():
 def get_cfg_fn():
 
 	try:
-		f = open('/home/guestshell/current_config_name','r')
+		f = open('/home/guestshell/configs/current_config_name','r')
 	except:
 		return None
 	fn = f.read()
