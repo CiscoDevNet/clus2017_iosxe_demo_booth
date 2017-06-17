@@ -76,8 +76,9 @@ if __name__ == '__main__':
 
 	os.remove(old_cfg_fn)
 
-	text = "Configuration change detected:" + "\n" + compare_configs(old_cfg,new_cfg)
+	d = compare_configs(old_cfg,new_cfg)
 
-	room = get_room_id(SPARK_ROOM, my_token)
-
-	post_message(text, room, bot_token)
+	if d != "":
+		text = "Configuration change detected:" + "\n" + d
+		room = get_room_id(SPARK_ROOM, my_token)
+		post_message(text, room, bot_token)
