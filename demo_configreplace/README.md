@@ -1,4 +1,4 @@
- # Demo: "Git-ing" Code 
+ # Demo: DevOps Workflow 
 
 ## Demo Steps
 
