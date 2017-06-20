@@ -1,4 +1,4 @@
-# IOS XE Device APIs
+# Readme
 This repository contains the demos and code used at the IOS XE Programmability demo booth at Cisco Live Vegas 2017. Thanks for stopping by to see us and test driving IOS XE APIs. In addition to the code from the demos there are a number of other resources to help as you get started with automation and programmability (see below).
 
 ### Learning
@@ -6,8 +6,6 @@ This repository contains the demos and code used at the IOS XE Programmability d
 1. [Programming the Digital Network Architecture](https://learninglabs.cisco.com/tracks/programming-dna) (DNA)
 
 	Dive in and learn all you need to know to work with the APIs and interfaces in the Digital Network Architecture. Explore programming foundations and APIs. Learn about APIC-EM, as well as device level APIs provided by YANG Data Models such as NETCONF and RESTCONF!
-
-1. 
 
 ### GitHub Repo's
 
@@ -39,7 +37,7 @@ This repository contains the demos and code used at the IOS XE Programmability d
 
 1. [IOS XE Programmability Sandbox - 16.6 Early Demo Code](https://devnetsandbox.cisco.com/RM/Diagram/Index/7fd27b24-7034-477d-9ad2-e2c8096dd1a5?diagramType=Topology)
 
-	Test drive the latest programmability capabilities like Guest Shell, Python, ZTP, and RESTconf in this IOS XE Sandbox based providing access to early demo code!
+	Test drive the latest programmability capabilities like Guest Shell, Python, ZTP, and RESTconf in this IOS XE based Sandbox providing access to early demo code!
 
 ### Community
 
