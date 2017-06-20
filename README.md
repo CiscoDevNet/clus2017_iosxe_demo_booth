@@ -3,7 +3,11 @@ This repository contains the demos and code used at the IOS XE Programmability d
 
 ### Learning
 
-1. [Programming the Digital Network Architecture](https://learninglabs.cisco.com/tracks/programming-dna) (DNA)
+1. [IOS XE DevNet Site](https://developer.cisco.com/site/ios-xe/)
+
+1. [IOS XE Documentation](https://developer.cisco.com/site/ios-xe/docs/)
+
+1. [DevNet Learning Labs](https://learninglabs.cisco.com/tracks/programming-dna "Programming the Digital Network Architecture")
 
 	Dive in and learn all you need to know to work with the APIs and interfaces in the Digital Network Architecture. Explore programming foundations and APIs. Learn about APIC-EM, as well as device level APIs provided by YANG Data Models such as NETCONF and RESTCONF!
 
