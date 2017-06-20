@@ -30,7 +30,7 @@ This demo shows the interaction between on-box Python running in guestshell and 
 
 	![Link](sparkicon.png)
 
-1.  Navigate to the **Catalyst Operations** room.
+1.  Navigate to the **Catalyst OnBox** room.
 
 1.  You will see the change you made in the Spark room.  This was posted directly from the switch using REST APIs.
 
