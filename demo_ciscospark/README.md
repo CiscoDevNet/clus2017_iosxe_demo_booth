@@ -6,7 +6,7 @@ This demo shows the interaction between on-box Python running in guestshell and 
 
 1.  Log into the IOS XE device using SSH.
 
-		ssh cisco@x.x.x.x
+		ssh cisco@10.10.140.1
 		
 1.  Examine the EEM script.  Note that it detects a syslog message indicating a configuration change and then triggers a guestshell Python script.
 		
@@ -22,7 +22,7 @@ This demo shows the interaction between on-box Python running in guestshell and 
 	
 		Switch#conf t
 		Enter configuration commands, one per line.  End with CNTL/Z.
-		Switch(config)#ip vrf Bob
+		Switch(config)#ip vrf <INSERT YOUR FIRST NAME>
 		Switch(config-vrf)#rd 100:100
 		Switch(config-vrf)#^Z
 		
@@ -40,7 +40,7 @@ This demo shows the interaction between on-box Python running in guestshell and 
 
 		Switch#conf t
 		Enter configuration commands, one per line.  End with CNTL/Z.
-		Switch(config)#no ip vrf Bob
+		Switch(config)#no ip vrf <INSERT YOUR FIRST NAME>
 		% IPv4 addresses from all interfaces in VRF Bob have been removed
 		Switch(config)#^Z
 		Switch#
