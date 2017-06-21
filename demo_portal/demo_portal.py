@@ -14,6 +14,7 @@ demos = [
         "features": ["eem", "python", "guest shell"],
         "image": "chatops.png",
         "code": "chatops"
+        "demo_steps": markdown.markdown(open("static/demo_chatops_steps.md").read())
     },
     {
         "name": "Streaming Telemetry",
