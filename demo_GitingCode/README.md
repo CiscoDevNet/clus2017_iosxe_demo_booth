@@ -1,19 +1,23 @@
 # Demo: "Git-ing" Code 
 
+This demo will show you how IOS XE gives you access to modern developer tools like `git` on your network element. 
+
 ## Demo Steps
 
-1. Log into the IOS XE device using SSH
+1. Open Terminal & log into the IOS XE device using SSH
 
-        ssh admin@10.10.140.1 
+        ssh cisco@10.10.140.1
+
+        password 'cisco'
     
-1. Access the Guest Shell Environment
+1. Access Guest Shell Environment
 
         guestshell run bash
             
         # Output
         [guestshell@guestshell ~]$
     
-1. Clone down the demo repository 
+1. Clone down demo repository 
 
         git clone https://github.com/CiscoDevNet/clus2017_iosxe_demo_booth
         
@@ -25,7 +29,7 @@
         Receiving objects: 100% (102/102), 4.27 MiB | 2.90 MiB/s, done.
         Resolving deltas: 100% (2/2), done.
     
-1. Enter the directory.  
+1. Enter directory.  
 
         cd clus2017_iosxe_demo_booth
     
@@ -100,7 +104,7 @@
     
 ## Summary and Cleanup
 
-Great job!  You have seen how having access to developer tools like `git` right on the network elements can make it easy to manage applications, code, and scripts.  Develop and test locally, and then use typical DevOps processes and tools to distribute and update code network wide.  
+Great job!  You have seen how having access to developer tools like `git` right on the network elements can make it easy to manage applications, code, and scripts. Develop and test locally, and then use typical DevOps processes and tools to distribute and update code network wide.  
 
 1. Cleanup the device for the next demo by deleting the code directory.  
 
