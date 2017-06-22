@@ -41,7 +41,7 @@ This demo will show you how IOS XE gives you access to modern developer tools li
     
 1. Run code from the repository.  
 
-        cd demo_git
+        cd demo_GitingCode
         python hangman.py 
         
         # Output
