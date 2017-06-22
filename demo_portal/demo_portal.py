@@ -13,7 +13,7 @@ demos = [
         "owners": ["Jeff M"],
         "features": ["eem", "python", "guest shell"],
         "image": "chatops.png",
-        "code": "chatops"
+        "code": "chatops",
         "demo_steps": markdown.markdown(open("static/demo_chatops_steps.md").read())
     },
     {
@@ -23,7 +23,8 @@ demos = [
         "owners": ["Jeff M", "Fabrizio"],
         "features": ["netconf", "telemetry", "yang", "pub/sub", "operational"],
         "image": "telemetry.png",
-        "code": "telemetry"
+        "code": "telemetry",
+        "demo_steps": markdown.markdown(open("static/demo_streaming_telemtry_steps.md").read())
     },
     {
         "name": "DevOps Golden Config",
@@ -32,7 +33,8 @@ demos = [
         "owners": ["Krishna"],
         "features": ["netconf", "continuous delivery", "python", "config-replace", "devops"],
         "image": "devops.png",
-        "code": "devops"
+        "code": "devops",
+        "demo_steps": markdown.markdown(open("static/demo_devops_golden_steps.md").read())
     },
     {
         "name": '"Git-ing" Code',
@@ -44,6 +46,18 @@ demos = [
         "code": "git",
         "demo_steps": markdown.markdown(open("static/demo_git_steps.md").read())
     },
+    {
+        "name": 'More Resources',
+        "short_desc": "Interested in where to find more info and details on the tools used in the demos?",
+        "long_desc": "Thanks for stopping by to see us and test driving IOS XE APIs. In addition to the code from the demos there are a number of other resources to help as you get started with automation and programmability (see below).",
+        "owners": ["Travis C"],
+        "features": ["devnet", "git", "devops", "python"],
+        "image": "more_resources.png",
+        "code": "mres",
+        "demo_steps": markdown.markdown(open("static/more_resources.md").read())
+    }
+]
+pending_demos = [
     {
         "name": "Talk to the Network",
         "short_desc": "Programmability enables interaction between network devices & other systems or apps",

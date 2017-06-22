@@ -4,40 +4,39 @@
 
 <div class="container">
     <div class="row">
-{% for demo in demos %}
 
-    <div class="col-sm-3 col-sm-offset-1 padded-container " align="center">
-        <h3 class="" >{{ demo["name"] }}</h3>
-        <div></div><img src="../static/img/{{ demo['image'] }}" class="img-responsive" width="200">
-        <p style="font-size: small;">Description: {{ demo["short_desc"] }}</p>
-        <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{demo['code']}}Modal">Run Demo</button>
+    {% for demo in demos %}
+        <div class="col-sm-3 col-sm-offset-1 padded-container " align="center">
+            <h3 class="" >{{ demo["name"] }}</h3>
+            <div></div><img src="../static/img/{{ demo['image'] }}" class="img-responsive" width="200">
+            <p style="font-size: small;">Description: {{ demo["short_desc"] }}</p>
+            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#{{demo['code']}}Modal">Get Started</button>
+        </div>
+
+        <!-- Modal -->
+        <div id="{{demo['code']}}Modal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h1 class="modal-title">{{ demo["name"] }}</h1>
+              </div>
+              <div class="modal-body">
+                <p>{{ demo["long_desc"] }}</p>
+                {{ demo["demo_steps"]|safe }}
+
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    {% endfor %}
+
     </div>
-
-<!-- Modal -->
-<div id="{{demo['code']}}Modal" class="modal fade" role="dialog">
-  <div class="modal-dialog modal-lg">
-
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h1 class="modal-title">{{ demo["name"] }}</h1>
-      </div>
-      <div class="modal-body">
-        <p>{{ demo["long_desc"] }}</p>
-        {{ demo["demo_steps"]|safe }}
-
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-{% endfor %}
-</div>
 </div>
 
 {% endblock %}
