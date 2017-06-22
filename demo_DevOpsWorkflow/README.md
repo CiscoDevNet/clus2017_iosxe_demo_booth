@@ -1,31 +1,35 @@
  # Demo: DevOps Workflow 
 
+This demo shows how you can use device APIs to enable a DevOps workflow to manage configurations of network elements using a golden image.
+
 ## Demo Steps
 
-1. Open the Terminal & log into the IOS XE device using SSH
+1. Open Terminal & log into the IOS XE device using SSH
 
-        ssh admin@10.10.140.1 
+        ssh cisco@10.10.140.1
+
+        password 'cisco' 
     
 1. Verify no route-map is configured on the device
 
         Switch#sh run | sec route-map
     
-1. Execute ’dir’ on the switch and you will see all the existing files on the flash, “config_rm” is the file you going to replace with running config. 
+1. Execute ’dir’ on the switch and you will see all the existing files on the flash, “GoldenImage” is the file you are going to use to replace the running config. 
 
         Switch#dir
         Directory of flash:/
     
-1. Open another tab in the terminal and enter below cmd.  
+1. Open another tab in Terminal and enter below cmd.  
 
-        cd ~/Desktop
+        cd ~
     
-1. Explore the YDK AP
+1. Explore the Python script that will execute the config replace.
 
-        more config_replace.py
+        more GoldenImage.py
     
-1. Execute the App in the terminal.  
+1. Execute the script in the terminal.  
 
-        time ./config_replace.py ssh://cisco:cisco@10.10.140.1 –v
+        time ./GoldenImage.py ssh://cisco:cisco@10.10.140.1 –v
     
 1. Go to the switch tab and verify config has been replaced.  
 
@@ -36,7 +40,7 @@
     
 ## Summary and Cleanup
 
-Great job!  You have seen how having access to developer tools like `git` right on the network elements can make it easy to manage applications, code, and scripts.  Develop and test locally, and then use typical DevOps processes and tools to distribute and update code network wide.  
+Great job!  You have seen how you can use IOS XE programmability features to manage your network elements using a DevOps workflow to manage a golden image config.  
 
 1. Cleanup the device for the next demo by executing the script below which is on desktop.  
 
@@ -45,4 +49,3 @@ Great job!  You have seen how having access to developer tools like `git` right 
 1. Verify on the Switch config has been reset.  
 
         Switch#sh run | sec route-map 
-
