@@ -1,6 +1,6 @@
 # Demo: Streaming Telemetry 
 
-
+This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off the network element in a structured format that can easily be integrated with other tools. In this case we will use [Kafka](https://kafka.apache.org/) and an [ELK stack](https://www.elastic.co/products) (Elasticsearch, Logstash, and Kibana) to visualize the data streaming off the device.
 
 ## Demo Steps
 
@@ -21,9 +21,13 @@
 1. Open VMWare Fusion
 
 ![](https://github.com/CiscoDevNet/clus2017_iosxe_demo_booth/blob/master/demo_StreamingTelemetry/images/vmware_fusion_icon.png)
+
 1. Login to the VM  
 
         password 'kafka'
+        
+        Note that Kafka & ELK are already running on the VM, but there is no data until we setup a 
+        telemetry subscription to push data from the device
     
 1. Select the terminal called 'IETF Client' and launch the IETF Client
 
