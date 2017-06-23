@@ -49,6 +49,12 @@ Easter egg. Just messin' around!
 Reset everything to the start. Do this whenever. As a bonus, you can show off
 config-replace, since it uses this to reset things.
 
+## ALL ELSE FAILS
+Just pull these videos. Turn the sound down. You can talk through them and don't
+have to listen to me!
+[RESTCONF-only](https://sharevideo.cisco.com/#/videos/ba89acc8-3e60-4c0b-b5f5-e17dc1e5deec) -- Calls to the CSR that Alexa does.
+[Full-example](https://sharevideo.cisco.com/#/videos/f66bf8f9-b91e-49ec-a80b-23b351b38e2b) -- If something happens, just show the full video! 
+
 ## Folders:
 **RESTCONF** -- This folder contains the actual instructions sent to Alexa when you
 play. This is always good to show first thing. You can set the stage for the
