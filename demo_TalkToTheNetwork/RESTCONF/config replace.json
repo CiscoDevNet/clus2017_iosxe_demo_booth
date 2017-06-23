@@ -1,0 +1,34 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "76ca5747-f6c5-4459-880b-37bbc0761e8d",
+			"name": "Alexa-demo",
+			"folders": [],
+			"requests": [
+				{
+					"id": "8081a027-a22c-41c9-982f-373ed18ebe11",
+					"url": "http://ec2-52-91-174-10.compute-1.amazonaws.com:80/restconf/api/operations/cisco-ia:rollback",
+					"method": "POST",
+					"collectionId": "76ca5747-f6c5-4459-880b-37bbc0761e8d",
+					"name": "config replace",
+					"description": "This command is an RPC to tell the device to save its config.",
+					"headers": "Content-Type: application/vnd.yang.operation+json\nAccept: application/vnd.yang.operation+json\nAuthorization: Basic Y2lzY286QzFzZGV2b3Bz",
+					"dataMode": "raw",
+					"data": "{\"cisco-ia:input\": {\"target-url\":\"bootflash:demo-start.cfg\"}}"
+				}
+			],
+			"order": [
+				"8081a027-a22c-41c9-982f-373ed18ebe11"
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "d90712df-abd4-4bfa-b434-9c3ee7ab09f9",
+			"name": "API-Flow Imports",
+			"values": [],
+			"timestamp": 1498239645522
+		}
+	]
+}

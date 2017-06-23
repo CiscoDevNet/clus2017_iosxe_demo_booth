@@ -1,0 +1,34 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "819bc348-97ca-4861-a96c-48b526e2de0f",
+			"name": "Alexa-demo",
+			"folders": [],
+			"requests": [
+				{
+					"id": "af8896f4-f781-4a76-b00e-41d2ddd1aeda",
+					"url": "http://ec2-52-91-174-10.compute-1.amazonaws.com:80/restconf/api/config/native/interface/Loopback/2",
+					"method": "DELETE",
+					"collectionId": "819bc348-97ca-4861-a96c-48b526e2de0f",
+					"name": "destroy interface loop2",
+					"description": "This command uses the Native model to destroy an interface named Loopback2",
+					"headers": "Content-Type: application/vnd.yang.data+json\nAccept: application/vnd.yang.data+json\nAuthorization: Basic Y2lzY286QzFzZGV2b3Bz",
+					"dataMode": "raw",
+					"data": ""
+				}
+			],
+			"order": [
+				"af8896f4-f781-4a76-b00e-41d2ddd1aeda"
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "fe3ec772-8f72-47ef-be3f-3c76e2bdffc6",
+			"name": "API-Flow Imports",
+			"values": [],
+			"timestamp": 1498239636375
+		}
+	]
+}

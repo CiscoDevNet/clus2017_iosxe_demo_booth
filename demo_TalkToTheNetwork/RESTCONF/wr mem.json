@@ -1,0 +1,34 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "f6ee1512-1ab8-44cc-89bc-1ae192cf42a6",
+			"name": "Alexa-demo",
+			"folders": [],
+			"requests": [
+				{
+					"id": "0fb35a45-969a-4609-bcad-8a971453b3cd",
+					"url": "http://ec2-52-91-174-10.compute-1.amazonaws.com:80/restconf/api/operations/cisco-ia:save-config",
+					"method": "POST",
+					"collectionId": "f6ee1512-1ab8-44cc-89bc-1ae192cf42a6",
+					"name": "wr mem",
+					"description": "This command is an RPC to tell the device to save its config.",
+					"headers": "Content-Type: application/vnd.yang.operation+json\nAccept: application/vnd.yang.operation+json\nAuthorization: Basic Y2lzY286QzFzZGV2b3Bz",
+					"dataMode": "raw",
+					"data": "{}"
+				}
+			],
+			"order": [
+				"0fb35a45-969a-4609-bcad-8a971453b3cd"
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "0cd706ff-369e-43c0-b966-819a7e3a10b4",
+			"name": "API-Flow Imports",
+			"values": [],
+			"timestamp": 1498239618156
+		}
+	]
+}

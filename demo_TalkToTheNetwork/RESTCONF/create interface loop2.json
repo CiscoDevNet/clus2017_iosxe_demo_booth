@@ -1,0 +1,34 @@
+{
+	"version": 1,
+	"collections": [
+		{
+			"id": "8f920cda-68e8-4394-9161-10994b1dea24",
+			"name": "Alexa-demo",
+			"folders": [],
+			"requests": [
+				{
+					"id": "e43a55b3-c235-44df-b789-549bf3d6a8d1",
+					"url": "http://ec2-52-91-174-10.compute-1.amazonaws.com:80/restconf/api/config/native/interface/Loopback/2",
+					"method": "PUT",
+					"collectionId": "8f920cda-68e8-4394-9161-10994b1dea24",
+					"name": "create interface loop2",
+					"description": "This command uses the Native model to create an interface named Loopback2",
+					"headers": "Content-Type: application/vnd.yang.data+json\nAccept: application/vnd.yang.data+json\nAuthorization: Basic Y2lzY286QzFzZGV2b3Bz",
+					"dataMode": "raw",
+					"data": "{\"Cisco-IOS-XE-native:Loopback\": {\"name\": \"2\"}}"
+				}
+			],
+			"order": [
+				"e43a55b3-c235-44df-b789-549bf3d6a8d1"
+			]
+		}
+	],
+	"environments": [
+		{
+			"id": "6f479409-bf4a-4409-a946-400f7440767b",
+			"name": "API-Flow Imports",
+			"values": [],
+			"timestamp": 1498239627870
+		}
+	]
+}
