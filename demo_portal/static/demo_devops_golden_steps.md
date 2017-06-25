@@ -1,3 +1,7 @@
+ # Demo: DevOps Workflow 
+
+This demo shows how you can use device APIs to enable a DevOps workflow to manage configurations of network elements using a golden image.
+
 ## Demo Steps
 
 1. Open Terminal & log into the IOS XE device using SSH
