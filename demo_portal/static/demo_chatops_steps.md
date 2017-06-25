@@ -1,14 +1,16 @@
-	# Demo:  On-Box Python/Spark
+# Demo:  On-Box Python/Spark
 
 This demo shows the interaction between on-box Python running in guestshell and Spark using REST APIs.  The demo also shows the integration between Embedded Event Manager (EEM) and on-box Python.
 
 ##  Demo Steps
 
-1.  Log into the IOS XE device using SSH.
+1. Open Terminal & log into the IOS XE device using SSH
 
-		ssh cisco@10.10.140.1
-		
-1.  Examine the EEM script.  Note that it detects a syslog message indicating a configuration change and then triggers a guestshell Python script.
+        ssh cisco@10.10.140.1
+
+        password 'cisco' 
+    
+1.  Examine the EEM script.  Note it detects syslog messages indicating a configuration change and triggers a guestshell Python script.
 		
 		show run | sec event
 		
@@ -24,17 +26,20 @@ This demo shows the interaction between on-box Python running in guestshell and 
 		Enter configuration commands, one per line.  End with CNTL/Z.
 		Switch(config)#ip vrf <INSERT YOUR FIRST NAME>
 		Switch(config-vrf)#rd 100:100
+		Press CNTL/Z to exit configuration mode
+
+		# Output
 		Switch(config-vrf)#^Z
 		
 1.  Open the Spark application on the laptop if it is not already open.
 
-	![Link](static/img/sparkicon.png)
+	![Link](sparkicon.png)
 
 1.  Navigate to the **Catalyst OnBox** room.
 
 1.  You will see the change you made in the Spark room.  This was posted directly from the switch using REST APIs.
 
-	![Link](static/img/sparkbot.png)
+	![Link](sparkbot.png)
 	
 1.  Clean up the changes you made by removing your VRF.  You will also see the removed configuration posted to the Spark room.
 
@@ -42,5 +47,12 @@ This demo shows the interaction between on-box Python running in guestshell and 
 		Enter configuration commands, one per line.  End with CNTL/Z.
 		Switch(config)#no ip vrf <INSERT YOUR FIRST NAME>
 		% IPv4 addresses from all interfaces in VRF Bob have been removed
-		Switch(config)#^Z
+		Press CNTL/Z to exit configuration mode
+
+		# Output
+		Switch(config-vrf)#^Z
 		Switch#
+
+## Summary
+
+Great job! You have seen how On-Box Python and Embedded Event Manager can, along with Cisco Spark, be used to create a solution that provides notifications of configuration changes on a device.  
