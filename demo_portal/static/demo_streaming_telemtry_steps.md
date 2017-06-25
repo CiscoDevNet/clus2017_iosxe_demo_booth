@@ -1,56 +1,64 @@
+# Demo: Streaming Telemetry 
+
+This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off the network element in a structured format that can easily be integrated with other tools. In this case we will use [Kafka](https://kafka.apache.org/) and an [ELK stack](https://www.elastic.co/products) (Elasticsearch, Logstash, and Kibana) to visualize the data streaming off the device.
+
 ## Demo Steps
 
-1. Open AnyConnect and connect to the Cisco lab
+1. Open Terminal & log into the IOS XE device using SSH
 
-        TBD 
+        ssh cisco@10.10.140.1
+
+        password 'cisco'
     
-1. Open VNC to connect to the virtual machine
+1. Check to make sure there are not any active telemetry subscriptions
 
-        ott-spectre:24
-        asr123
-
-1. In the bottom left window start the ietf client. This is how we will collect the telemetry data from the switch 
-
-        python ietf_client.py --uut_ip 5.30.15.59
+        show telemetry ietf subscriptions all
     
-1. Enter the directory.  
+1. Open Chrome and click on the bookmark for Kibana.
 
-        cd clus2017_iosxe_demo_booth
-    
-1. Explore the repository with some `git` commands
+        Notice that there is no data in our dashboard because we haven't setup the telemetry subscriptions yet.
 
-        curl -d '{"xpath":"/if:interfaces-state/interface[name=&quot;GigabitEthernet1/0/4&quot;]/statistics/out-octets", "period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
+1. Open VMWare Fusion
+
+![](https://github.com/CiscoDevNet/clus2017_iosxe_demo_booth/blob/master/demo_StreamingTelemetry/images/vmware_fusion_icon.png)
+
+1. Login to the VM  
+
+        password 'kafka'
         
+        Note that Kafka & ELK are already running on the VM, but there is no data until we setup a 
+        telemetry subscription to push data from the device
+    
+1. Select the terminal called 'IETF Client' and launch the IETF Client
+
+        python3 /home/kafka/telemetry/demo/ietf_client.py --uut_ip '10.10.140.1' --kafka 'localhost' --user cisco --password cisco
+    
+1. Select the terminal called 'Telemetry Subscriptions' and setup the following subscriptions one at a time.  
+
         curl -d '{"xpath":"/if:interfaces-state/interface[name=&quot;GigabitEthernet1/0/3&quot;]/statistics/in-octets", "period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
-        
-        curl -d '{"xpath": "/process-cpu-ios-xe-oper:cpu-usage/cpu-utilization/five-seconds","period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
+
+        curl -d '{"xpath":"/if:interfaces-state/interface[name=&quot;GigabitEthernet1/0/3&quot;]/statistics/out-octets", "period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
+
+        curl -d '{"xpath":"/memory-ios-xe-oper:memory-statistics/memory-statistic/free-memory","period": 1000", "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
+
+        curl -d '{"xpath":"/memory-ios-xe-oper:memory-statistics/memory-statistic/used-memory","period": 1000", "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
+
+        curl -d '{"xpath":"/cpu-usage/cpu-utilization/five-seconds", "period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
+
+        curl -d '{"xpath":"/environment-ios-xe-oper:environment-sensors/environment-sensor/current-reading","period": 1000,  "incident_id": 1234}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc  
     
-1. Now that the subscriptions are setup, open Chrome and launch Kibana.  
+1. Back on the terminal connected to the Catalyst 9300 verify the subscriptions.
 
-        http://ott-kafka-1:5601 
+        show telemetry ietf subscriptions all
+
+        #Output 
+
+1. Now go back to Chrome
+
+        The dashboards are now populating with telemetry data that is being pushed from the Catalyst 9300
     
-1. Click on Visualize and then select a 'Line chart'.
+## Summary and Cleanup
 
-![](static/img/Telemetry2.png)
+Great job! You've successfully setup a subscription for telemetry and seen how easy it is to integrate with open source tools thanks to the standards based APIs and structured data available on IOS XE and the Catalyst 9300.
 
-1. We will be creating this visualization 'From a new search'.
-
-![](static/img/Telemetry3.png)
-
-1. Select the index pattern 'telemetry-*' from the drop down menu.  
-
-![](static/img/Telemetry4.png)
-
-1. Now we are going to build the visualization. Select the following details
-
-![](static/img/Telemetry5.png)
-        
-![](static/img/Telemetry6.png)
-    
-1. Save the visualization.  
-
-![](static/img/save.png)
-    
-## Summary
-
-Great job!  You have seen how having access to developer tools like `git` right on the network elements can make it easy to manage applications, code, and scripts.  Develop and test locally, and then use typical DevOps processes and tools to distribute and update code network wide.  
+1. On the VM select the terminal called 'IETF Client' and then press ctrl+c twice.
