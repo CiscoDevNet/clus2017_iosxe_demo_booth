@@ -17,7 +17,7 @@ demos = [
         "demo_steps": markdown.markdown(open("static/demo_streaming_telemtry_steps.md").read())
     },
     {
-        "name": "DevOps Golden Config",
+        "name": "DevOps Worklow",
         "short_desc": "Use a DevOps workflow to manage golden images",
         "long_desc": "Use the ia.yang data model perform a config replace on the device ",
         "owners": ["Krishna"],
@@ -38,7 +38,7 @@ demos = [
     },
     {
         "name": "Config Change Notification",
-        "short_desc": "Embedded Event Manager and on box Python enables notification of config changes on a device",
+        "short_desc": "Track config changes with Embedded Event Manager and on box Python",
         "long_desc": "A user is able to go and make a change to the CAT9300 (adding a new route, etc.), once they have done this EEM uses an on-box python script to determine configuration diff and post to Spark room showing what has changed.",
         "owners": ["Jeff M"],
         "features": ["eem", "python", "guest shell"],
