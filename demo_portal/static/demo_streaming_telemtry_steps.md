@@ -6,7 +6,7 @@ This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off 
 
 1. Open Terminal & log into the IOS XE device using SSH
 
-        ssh cisco@10.10.140.1
+        ssh cisco@10.10.130.1
 
         password 'cisco'
     
@@ -20,7 +20,7 @@ This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off 
 
 1. Open VMWare Fusion
 
-![](static/img/vmware_fusion_icon.png)
+![](https://github.com/CiscoDevNet/clus2017_iosxe_demo_booth/blob/master/demo_StreamingTelemetry/images/vmware_fusion_icon.png)
 
 1. Login to the VM  
 
