@@ -6,7 +6,7 @@ This demo shows how you can use device APIs to enable a DevOps workflow to manag
 
 1. Open Terminal & log into the IOS XE device using SSH
 
-        ssh cisco@10.10.140.1
+        ssh cisco@10.10.130.1
 
         password 'cisco' 
     
@@ -29,7 +29,7 @@ This demo shows how you can use device APIs to enable a DevOps workflow to manag
     
 1. Execute the script in the terminal.  
 
-        time ./GoldenImage.py ssh://cisco:cisco@10.10.140.1 –v
+        time ./GoldenImage.py ssh://cisco:cisco@10.10.130.1 –v
     
 1. Go to the switch tab and verify config has been replaced.  
 
@@ -44,7 +44,7 @@ Great job!  You have seen how you can use IOS XE programmability features to man
 
 1. Cleanup the device for the next demo by executing the script below which is on desktop.  
 
-        time ./reset_replace.py ssh://admin:admin@10.10.140.1 -v
+        time ./VegasImage.py ssh://admin:admin@10.10.130.1 -v
 
 1. Verify on the Switch config has been reset.  
 
