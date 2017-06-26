@@ -20,7 +20,7 @@ This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off 
 
 1. Open VMWare Fusion
 
-![](https://github.com/CiscoDevNet/clus2017_iosxe_demo_booth/blob/master/demo_StreamingTelemetry/images/vmware_fusion_icon.png)
+![](static/img/vmware_fusion_icon.png)
 
 1. Login to the VM  
 

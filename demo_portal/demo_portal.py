@@ -37,7 +37,7 @@ demos = [
         "demo_steps": markdown.markdown(open("static/demo_git_steps.md").read())
     },
     {
-        "name": "Config Change Notification",
+        "name": "Config Change",
         "short_desc": "Track config changes with Embedded Event Manager and on box Python",
         "long_desc": "A user is able to go and make a change to the CAT9300 (adding a new route, etc.), once they have done this EEM uses an on-box python script to determine configuration diff and post to Spark room showing what has changed.",
         "owners": ["Jeff M"],
@@ -58,7 +58,7 @@ demos = [
     },
     {
         "name": 'More Resources',
-        "short_desc": "Interested in where to find more info and details on the tools used in the demos?",
+        "short_desc": "Looking for details on the tools used in the demos?",
         "long_desc": "Thanks for stopping by to see us and test driving IOS XE APIs. In addition to the code from the demos there are a number of other resources to help as you get started with automation and programmability (see below).",
         "owners": ["Travis C"],
         "features": ["devnet", "git", "devops", "python"],
