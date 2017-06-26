@@ -1,26 +1,46 @@
+# Demo: Talk to the Network 
+
+This demo shows how you can use device APIs to seamlessly interact with other systems or apps. In this case we have used the device APIs to create an Alexa skill that lets you talk to the network device through Alexa.
+
 ##  Demo Steps
-1. Pull up POSTMAN, and SSH into the CSR.
-Show off a few things, whatever.
-2. "***Alexa, ask Davis, Hello***""
-This is hello world. You don't need to do this if you're confident things are
-working as they should.
-3. "***Alexa, ask Davis Get C P U***"
-Like it reads. This will read the top line, and report back the 5sec and 1min
-.CPU
-4. "***Alexa, ask Davis, Tell me the status of interface gigabit ethernet one***"
-Like it reads. This will tell you the status of G1 on the CSR. Show it on the
-CSR too.
-5. "***Alexa, ask Davis, Tell me the status of interface loop one***"
-Like it reads. This will tell you the status of LO1 on the CSR. Show it on the
-CSR too.
-6. "***Alexa, ask Davis, Save the config***"
-Like it reads. This will do a 'wr mem' on the box and readout the JSON repsonse.
-7. "***Alexa, ask Davis, Create interface loop two***"
-Like it reads. This will create a loopback2 on the CSR. Show it.
-7. "***Alexa, ask Davis, Destroy interface loop two***"
-Like it reads. This will create a loopback2 on the CSR. Show it.
-8. "***Alexa, ask Davis, Disable RESTCONF***"
-Easter egg. Just messin' around!
-9. "***Alexa, ask Davis, roll back the demo***"
-Reset everything to the start. Do this whenever. As a bonus, you can show off
-config-replace, since it uses this to reset things.
+1. Open Terminal & log into the IOS XE device using SSH
+
+        ssh cisco@ec2-52-91-174-10.compute-1.amazonaws.com
+
+1.  Check the CPU utilization (5 sec and 1 min CPU)
+
+        sh proc cpu
+        
+        Alexa, ask Davis get CPU
+
+1. Check the status of GigabitEthernet1/0/1 then check the status of Loopback1
+
+        sh ip int br
+        
+        Alexa, ask Davis, Tell me the status of interface gigabit ethernet one
+
+        Alexa, ask Davis, Tell me the status of interface loop one
+
+1. Create Loopback2
+
+        Alexa, ask Davis, create interface loop two
+        
+        sh ip int br
+        
+1. Delete Loopback2
+
+        Alexa, ask Davis, destroy interface loop two
+
+        sh ip int br
+
+1. Save the config
+
+        Alexa, ask Davis, Save the config
+
+1. Disable RESTCONF
+
+        Alexa, ask Davis, Disable RESTCONF
+
+1. Reset the demo
+
+        Alexa, ask Davis, roll back the demo
