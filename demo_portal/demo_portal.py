@@ -7,18 +7,8 @@ app = Flask(__name__)
 
 demos = [
     {
-        "name": "ChatOps",
-        "short_desc": "Programmability provides push notification of changes made to a device",
-        "long_desc": "A user is able to go and make a change to the CAT9300 (adding a new route, etc.), once they have done this EEM uses an on-box python script to determine configuration diff and post to Spark room showing what has changed.",
-        "owners": ["Jeff M"],
-        "features": ["eem", "python", "guest shell"],
-        "image": "chatops.png",
-        "code": "chatops",
-        "demo_steps": markdown.markdown(open("static/demo_chatops_steps.md").read())
-    },
-    {
         "name": "Streaming Telemetry",
-        "short_desc": "Telemetry delivers insights at scale & performance not available before",
+        "short_desc": "Get insights at scale & performance not available before",
         "long_desc": "Using ELK Stack and the IETF client setup a periodic subscription on the CAT9300 and then visualize the telemetry output using Kibana. ",
         "owners": ["Jeff M", "Fabrizio"],
         "features": ["netconf", "telemetry", "yang", "pub/sub", "operational"],
@@ -28,7 +18,7 @@ demos = [
     },
     {
         "name": "DevOps Golden Config",
-        "short_desc": "Programmability enables DevOps workflow to programmatically manage golden images ",
+        "short_desc": "Use a DevOps workflow to manage golden images",
         "long_desc": "Use the ia.yang data model perform a config replace on the device ",
         "owners": ["Krishna"],
         "features": ["netconf", "continuous delivery", "python", "config-replace", "devops"],
@@ -38,13 +28,33 @@ demos = [
     },
     {
         "name": '"Git-ing" Code',
-        "short_desc": "Use 'git' within IOS XE to deploy code and scripts.",
+        "short_desc": "Use 'git' within IOS XE to enable rapid prototyping.",
         "long_desc": "Manage on-box automation and code with source control for an excellent developer experience.",
         "owners": ["Hank P"],
         "features": ["guestshell", "git", "devops"],
         "image": "git.png",
         "code": "git",
         "demo_steps": markdown.markdown(open("static/demo_git_steps.md").read())
+    },
+    {
+        "name": "Config Change Notification",
+        "short_desc": "Embedded Event Manager and on box Python enables notification of config changes on a device",
+        "long_desc": "A user is able to go and make a change to the CAT9300 (adding a new route, etc.), once they have done this EEM uses an on-box python script to determine configuration diff and post to Spark room showing what has changed.",
+        "owners": ["Jeff M"],
+        "features": ["eem", "python", "guest shell"],
+        "image": "chatops.png",
+        "code": "chatops",
+        "demo_steps": markdown.markdown(open("static/demo_chatops_steps.md").read())
+    },
+    {
+        "name": "Talk to the Network",
+        "short_desc": "Use device APIs to seamlessly interact with other systems or apps",
+        "long_desc": "Talk with Alexa to see how the interfaces are doing on the CAT9300 (ietf-interfaces.yang), ask Alexa to turn on PoE lights (using Cisco-IOS-XE-poe.yang), and retrieve operational data (Cisco-IOS-XE-cpu-process-oper.yang & Cisco-IOS-XE-environment-oper.yang). ",
+        "owners": ["Jason F"],
+        "features": ["netconf", "yang", "operational", "alexa"],
+        "image": "talk.png",
+        "code": "talk",
+        "demo_steps": markdown.markdown(open("static/demo_alexa_steps.md").read())
     },
     {
         "name": 'More Resources',
@@ -58,15 +68,6 @@ demos = [
     }
 ]
 pending_demos = [
-    {
-        "name": "Talk to the Network",
-        "short_desc": "Programmability enables interaction between network devices & other systems or apps",
-        "long_desc": "Talk with Alexa to see how the interfaces are doing on the CAT9300 (ietf-interfaces.yang), ask Alexa to turn on PoE lights (using Cisco-IOS-XE-poe.yang), and retrieve operational data (Cisco-IOS-XE-cpu-process-oper.yang & Cisco-IOS-XE-environment-oper.yang). ",
-        "owners": ["Jason F"],
-        "features": ["netconf", "yang", "operational", "alexa"],
-        "image": "talk.png",
-        "code": "talk"
-    }
 ]
 
 @app.route("/", methods=['GET'])

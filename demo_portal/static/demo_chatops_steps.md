@@ -1,7 +1,3 @@
-# Demo:  On-Box Python/Spark
-
-This demo shows the interaction between on-box Python running in guestshell and Spark using REST APIs.  The demo also shows the integration between Embedded Event Manager (EEM) and on-box Python.
-
 ##  Demo Steps
 
 1. Open Terminal & log into the IOS XE device using SSH
@@ -33,13 +29,13 @@ This demo shows the interaction between on-box Python running in guestshell and 
 		
 1.  Open the Spark application on the laptop if it is not already open.
 
-	![Link](sparkicon.png)
+	![Link](static/img/sparkicon.png)
 
 1.  Navigate to the **Catalyst OnBox** room.
 
 1.  You will see the change you made in the Spark room.  This was posted directly from the switch using REST APIs.
 
-	![Link](sparkbot.png)
+	![Link](static/img/sparkbot.png)
 	
 1.  Clean up the changes you made by removing your VRF.  You will also see the removed configuration posted to the Spark room.
 
