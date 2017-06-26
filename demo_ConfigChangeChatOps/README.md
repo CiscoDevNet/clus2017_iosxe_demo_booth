@@ -6,7 +6,7 @@ This demo shows the interaction between on-box Python running in guestshell and 
 
 1. Open Terminal & log into the IOS XE device using SSH
 
-        ssh cisco@10.10.140.1
+        ssh cisco@10.10.130.1
 
         password 'cisco' 
     
