@@ -16,7 +16,7 @@ This demo shows how you can use device APIs to enable a DevOps workflow to manag
     
 1. Execute ’dir’ on the switch and you will see all the existing files on the flash, “GoldenImage” is the file you are going to use to replace the running config. 
 
-        Switch#dir
+        Switch#dir | i Gold
         Directory of flash:/
     
 1. Open another tab in Terminal and enter below cmd.  
