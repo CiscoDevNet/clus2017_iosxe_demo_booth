@@ -1,6 +1,6 @@
 # Demo: Streaming Telemetry 
 
-This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off the network element in a structured format that can easily be integrated with other tools. In this case we will use [Kafka](https://kafka.apache.org/) and an [ELK stack](https://www.elastic.co/products) (Elasticsearch, Logstash, and Kibana) to visualize the data streaming off the device.
+This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off the network element in a structured format that can easily be integrated with other tools. In this case we will use [Kafka](https://kafka.apache.org/) and an [ELK stack](https://www.elastic.co/products) (Elasticsearch, Logstash, and Kibana) to visualize the data streaming off the device. Requires IOS XE 16.6.1
 
 ## Demo Steps
 
@@ -31,22 +31,17 @@ This demo shows how to stream telemetry off a Catalyst 9300. Data is pushed off 
     
 1. Select the terminal called 'IETF Client' and launch the IETF Client
 
-        python3 /home/kafka/telemetry/demo/ietf_client.py --uut_ip '10.10.140.1' --kafka 'localhost' --user cisco --password cisco
+        python3 /home/kafka/telemetry/demo/ietf_client.py --uut_ip '10.10.130.1' --kafka 'localhost' --user cisco --password cisco
     
-1. Select the terminal called 'Telemetry Subscriptions' and setup the following subscriptions one at a time.  
+1. Select the terminal called 'Telemetry Subscriptions' and look at the telemetry subscriptions you will be setting up.  
 
-        curl -d '{"xpath":"/if:interfaces-state/interface[name=&quot;GigabitEthernet1/0/3&quot;]/statistics/in-octets", "period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
+        
+        cat subscribe_me.sh
+        
+1. Now execute the subscribe_me.sh file to setup the subscriptions.
 
-        curl -d '{"xpath":"/if:interfaces-state/interface[name=&quot;GigabitEthernet1/0/3&quot;]/statistics/out-octets", "period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
-
-        curl -d '{"xpath":"/memory-ios-xe-oper:memory-statistics/memory-statistic/free-memory","period": 1000", "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
-
-        curl -d '{"xpath":"/memory-ios-xe-oper:memory-statistics/memory-statistic/used-memory","period": 1000", "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
-
-        curl -d '{"xpath":"/cpu-usage/cpu-utilization/five-seconds", "period": 1000, "incident_id": '1234'}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc
-
-        curl -d '{"xpath":"/environment-ios-xe-oper:environment-sensors/environment-sensor/current-reading","period": 1000,  "incident_id": 1234}' -H 'Content-Type: application/json' http://127.0.0.1:8320/sendrpc  
-    
+        ./subscribe_me.sh
+            
 1. Back on the terminal connected to the Catalyst 9300 verify the subscriptions.
 
         show telemetry ietf subscriptions all
