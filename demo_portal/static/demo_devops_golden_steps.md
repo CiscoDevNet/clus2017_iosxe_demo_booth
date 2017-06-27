@@ -1,6 +1,6 @@
  # Demo: DevOps Workflow 
 
-This demo shows how you can use device APIs to enable a DevOps workflow to manage configurations of network elements using a golden image.
+This demo shows how you can use device APIs to enable a DevOps workflow to manage configurations of network elements using a golden image. Requires IOS XE 16.3.1.
 
 ## Demo Steps
 
@@ -44,7 +44,7 @@ Great job!  You have seen how you can use IOS XE programmability features to man
 
 1. Cleanup the device for the next demo by executing the script below which is on desktop.  
 
-        time ./VegasImage.py ssh://admin:admin@10.10.130.1 -v
+        time ./VegasImage.py ssh://cisco:cisco@10.10.130.1 -v
 
 1. Verify on the Switch config has been reset.  
 
