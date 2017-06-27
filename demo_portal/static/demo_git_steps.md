@@ -1,6 +1,6 @@
 # Demo: "Git-ing" Code 
 
-This demo will show you how IOS XE gives you access to modern developer tools like `git` on your network element. 
+This demo will show you how IOS XE gives you access to modern developer tools like `git` on your network element. Requires IOS XE 16.5.1.
 
 ## Demo Steps
 
