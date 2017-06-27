@@ -1,6 +1,6 @@
 # Demo:  On-Box Python/Spark
 
-This demo shows the interaction between on-box Python running in guestshell and Spark using REST APIs.  The demo also shows the integration between Embedded Event Manager (EEM) and on-box Python.
+This demo shows the interaction between on-box Python running in guestshell and Spark using REST APIs.  The demo also shows the integration between Embedded Event Manager (EEM) and on-box Python. Requires IOS XE 16.5.1.
 
 ##  Demo Steps
 
