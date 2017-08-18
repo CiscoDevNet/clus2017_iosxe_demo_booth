@@ -53,7 +53,7 @@ def cmn_rollback_config():
                 "operations/cisco-ia:rollback",
             headers={
                 "Content-Type": "application/vnd.yang.operation+json",
-                "Authorization": "Basic Y2lzY286QzFzZGV2b3Bz",
+                "Authorization": "Basic Z3N4Y2lzY286UHIwZ3JAbW1AYmwz",
                 "Accept": "application/vnd.yang.operation+json",
             },
             data="{\"cisco-ia:input\": {\"target-url\":\"bootflash:demo-start.cfg\"}}"
@@ -82,7 +82,7 @@ def cmn_get_cpu():
                 "operational/cpu-usage/cpu-utilization",
             headers={
                 "Content-Type": "application/vnd.yang.data+json",
-                "Authorization": "Basic Y2lzY286QzFzZGV2b3Bz",
+                "Authorization": "Basic Z3N4Y2lzY286UHIwZ3JAbW1AYmwz",
                 "Accept": "application/vnd.yang.data+json",
             },
         )
