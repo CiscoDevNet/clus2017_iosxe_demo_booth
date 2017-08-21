@@ -6,9 +6,9 @@ This demo will show you how IOS XE gives you access to modern developer tools li
 
 1. Open Terminal & log into the IOS XE device using SSH
 
-        ssh cisco@10.10.130.1
+        ssh cisco@172.26.244.91
 
-        password 'cisco'
+        password 'cisco' 
     
 1. Access Guest Shell Environment
 
