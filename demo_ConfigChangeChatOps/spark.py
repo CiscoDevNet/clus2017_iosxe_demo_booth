@@ -1,7 +1,11 @@
 import requests
 from requests.auth import HTTPBasicAuth
-import requests.packages.urllib3
+from requests.packages.urllib3.exceptions import InsecureRequestWarning
 import json
+
+# Insert bot token below
+
+bot_token = ""
 
 proxies = {
 	"http":"http://173.36.224.108:8080",
@@ -9,8 +13,8 @@ proxies = {
 }
 
 def create_room(room_name, token):
-	
-	requests.packages.urllib3.disable_warnings()
+
+	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -22,8 +26,8 @@ def create_room(room_name, token):
 	print resp
 
 def list_rooms(token):
-	
-	requests.packages.urllib3.disable_warnings()
+
+	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -34,7 +38,7 @@ def list_rooms(token):
 
 def get_room_id(room_name, token):
 
-	requests.packages.urllib3.disable_warnings()
+	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 	id = ""
 
@@ -44,7 +48,7 @@ def get_room_id(room_name, token):
 	verify=False,headers=headers,proxies=proxies)
 
 	if resp.status_code == 200:
-		
+
 		rooms = json.loads(resp.text)['items']
 
 		for room in rooms:
@@ -55,7 +59,7 @@ def get_room_id(room_name, token):
 
 def list_messages(room_id, token):
 
-	requests.packages.urllib3.disable_warnings()
+	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -63,14 +67,17 @@ def list_messages(room_id, token):
 						verify=False,headers=headers)
 	return resp.text
 
-def post_message(message_text, room_id, token):
+def post_message(message_text, room_id, token, markdown=False):
 
-	requests.packages.urllib3.disable_warnings()
+	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
 
-	body = json.dumps({'roomId':room_id,'text':message_text})
+	if markdown:
+		body = json.dumps({'roomId':room_id,'markdown':message_text})
+	else:
+		body = json.dumps({'roomId':room_id,'text':message_text})
 
 	resp = requests.post('https://api.ciscospark.com/v1/messages',
 	verify=False,headers=headers,data=body,proxies=proxies)
@@ -79,7 +86,7 @@ def post_message(message_text, room_id, token):
 
 def post_message_with_image(message_text, img_url, room_id, token):
 
-	requests.packages.urllib3.disable_warnings()
+	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 	headers = {'Authorization':'Bearer '+token,
 				'Content-Type':'application/json'}
@@ -93,7 +100,7 @@ def post_message_with_image(message_text, img_url, room_id, token):
 
 def cleanup_room(room_id, token):
 
-	requests.packages.urllib3.disable_warnings()
+	requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
 	messages = json.loads(list_messages(room_id, token))
 
@@ -109,10 +116,7 @@ def cleanup_room(room_id, token):
 
 
 def main():
-
-	room=get_room_id('jeff test room')
-	print post_message('Testing 6:32pm',room).status_code
-	list_messages(room)
+	pass
 
 if __name__ == "__main__":
 

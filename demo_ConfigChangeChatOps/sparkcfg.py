@@ -7,21 +7,18 @@ from spark import *
 
 SPARK_ROOM = "Catalyst OnBox"
 
-my_token = "ODY1ZWE3ZTUtY2JhNS00Njc2LWI1MDYtMTAwY2EwM2FkNzFmYTM4YzdhMjgtODI5"
-bot_token = "Mjg3ZWVjMTYtYzc2NC00ZDc2LTg5ZWMtYjJlMmYyYTllZjA5YzlhM2ZhYmMtZTAy"
-
 def save_config():
 
 	output = cli('show run')
 
 	timestr = time.strftime("%Y%m%d-%H%M%S")
-	filename = "/home/guestshell/configs/" + timestr + "_shrun"
+	filename = "/bootflash/" + timestr + "_shrun"
 
 	f = open(filename,"w")
 	f.write(output)
 	f.close
 
-	f = open('/home/guestshell/configs/current_config_name','w')
+	f = open('/bootflash/current_config_name','w')
 	f.write(filename)
 	f.close
 
@@ -30,7 +27,7 @@ def save_config():
 def get_cfg_fn():
 
 	try:
-		f = open('/home/guestshell/configs/current_config_name','r')
+		f = open('/bootflash/current_config_name','r')
 	except:
 		return None
 	fn = f.read()
@@ -46,16 +43,27 @@ def compare_configs(cfg1,cfg2):
 	for line in d:
 		if line.find('Current configuration') == -1:
 			if line.find('Last configuration change') == -1:
-				if (line.find("+++")==-1) and (line.find("---")==-1):
-					if (line.find("-!")==-1) and (line.find('+!')==-1):
-						if line.startswith('+'):
-							diffstr = diffstr + "\n" + line
-						elif line.startswith('-'):
-							diffstr = diffstr + "\n" + line
+				if line.find('length 0') == -1:
+					if line.find('login authentication tacplus') == -1:
+						if (line.find("+++")==-1) and (line.find("---")==-1):
+							if (line.find("-!")==-1) and (line.find('+!')==-1):
+								if line.startswith('+'):
+									diffstr = diffstr + "\n" + line
+								elif line.startswith('-'):
+									diffstr = diffstr + "\n" + line
 
 	return diffstr
 
+def do_error(error):
+	f = open("/bootflash/last_error", "w")
+	f.write(error)
+	f.close
+
 if __name__ == '__main__':
+
+	timestamp = cli('show clock').strip()
+	hostname = cli('show run | i hostname').strip()[9:]
+	user = cli('show log | i SYS-5-CONFIG').split()[-4:-3][0]
 
 	old_cfg_fn = get_cfg_fn()
 
@@ -79,6 +87,14 @@ if __name__ == '__main__':
 	d = compare_configs(old_cfg,new_cfg)
 
 	if d != "":
-		text = "Configuration change detected:" + "\n" + d
-		room = get_room_id(SPARK_ROOM, my_token)
-		post_message(text, room, bot_token)
+		text = "**{}** configured by user **{}** at **{}**:".format(hostname, user ,timestamp)
+		room = get_room_id(SPARK_ROOM, bot_token)
+		if room == "":
+			do_error("Unable to get room ID")
+		if str(post_message(text, room, bot_token, markdown=True).status_code)[0] != '2':
+			do_error("Post message failed!")
+		else:
+			if str(post_message(d, room, bot_token).status_code)[0] != '2':
+				do_error("Post message failed!")
+	else:
+		do_error("No configuration change detected!")
